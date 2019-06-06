@@ -3,6 +3,7 @@
 
 //gets与puts
 //gets会在最后添一个\0
+//gets也不安全，不能保证不越界
 int main()
 {
 	char c[50];
