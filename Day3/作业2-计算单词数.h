@@ -1,3 +1,9 @@
+/*
+输入一行字符串（单词和若干空格）， 输出该行单词个数。
+Input：____hello_________world_ how___are___you___\n
+Output:   5
+*/
+
 #include <stdio.h>
 #include <stdlib.h> 
 
