@@ -1,3 +1,11 @@
+/*输入一行字符串，把字符串翻转 。
+Input: I____am__a__student
+Output: student__a__am____I
+
+（1）直接翻转一下
+（2）把每个单词找出来，原地自身翻转
+*/
+
 #include <stdio.h>
 #include <stdlib.h> 
 
