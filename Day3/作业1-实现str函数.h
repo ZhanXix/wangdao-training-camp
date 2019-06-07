@@ -1,3 +1,5 @@
+/*实现  mystrcpy(), mystrcmp(), mystrcat(), mystrlen() ;*/
+
 #include <stdio.h> 
 #include <stdlib.h> 
 
