@@ -1,3 +1,5 @@
+/*将十进制数转换成十六进制数。输入十进制数输出对应的十六进制数。输入“ctl + z” 结束。*/
+
 #include <stdio.h> 
 #include <stdlib.h> 
 
