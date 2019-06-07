@@ -1,3 +1,7 @@
+/*
+将十进制数转换成二进制数。输入十进制数输出对应的二进制数，输入“ctl + z”结束。
+*/
+
 #include <stdio.h> 
 #include <stdlib.h> 
 
