@@ -1,3 +1,4 @@
+/*从键盘上输入字符，将小写字母转换成大写字母。输入“ctl + z” 结束 。*/
 #include <stdio.h> 
 #include <stdlib.h> 
 
