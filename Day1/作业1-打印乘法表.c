@@ -1,3 +1,4 @@
+/*打印九九乘法表*/
 #include <stdio.h> 
 #include <stdlib.h> 
 
