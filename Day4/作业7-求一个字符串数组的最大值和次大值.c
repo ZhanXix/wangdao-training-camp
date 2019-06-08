@@ -1,34 +1,35 @@
 /*
-ÇóÒ»¸ö×Ö·û´®Êı×éµÄ×î´óÖµºÍ´Î´óÖµ  void big(char *arr[],int size ,char** big1,char** big2)
+æ±‚ä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„çš„æœ€å¤§å€¼å’Œæ¬¡å¤§å€¼  void big(char *arr[],int size ,char** big1,char** big2)
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int main() {
-	char* str;
-	char Max, secMax;
-	int len;
-	printf("ÊäÈëĞèÒª´¦ÀíµÄ×Ö·û´®×î´ó³¤¶È£º\n");
-	while (scanf("%d", &len) != EOF)
+void big(char* arr[], int size, char** big1, char** big2)
+{
+	if (size)
 	{
-		str = (int*)malloc(len + 1);
-		printf("ÊäÈëĞèÒª´¦ÀíµÄ×Ö·û´®£º\n");
-		rewind(stdin);
-		gets(str);
-		Max = str[0];
-		for (int i = 0; i < len; ++i)
+		*big1 = arr[0];
+		for (int i = 1; i < size; i++)
 		{
-			if (str[i] > Max) {
-				secMax = Max;
-				Max = str[i];
+			if (strcmp(arr[i], *big1) > 0)
+			{
+				*big2 = *big1;
+				*big1 = arr[i];
+			}
+			else if (strcmp(arr[i], *big2) > 0)
+			{
+				*big2 = arr[i];
 			}
 		}
-		printf("×Ö·û´®×î´óÖµÎª£º%c\n",Max);
-		printf("×Ö·û´®´Î´óÖµÎª£º%c\n", secMax);
-		free(str);
-		str = NULL;
-		printf("\nÊäÈëĞèÒª´¦ÀíµÄ×Ö·û´®×î´ó³¤¶È£º\n");
 	}
+}
+#define N 6
+int main() {
+	char* arr[] = { "apple","bed","cake","pear","dining","end" };
+	char* Max = NULL, * secMax = NULL;
+	big(&arr, N, &Max, &secMax);
+	printf("MAX: %s\n", Max);
+	printf("secMAX: %s\n", secMax);
 	system("pause");
 }
