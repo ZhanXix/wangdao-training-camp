@@ -1,16 +1,21 @@
-/*
-求一个字符串数组的最大值和次大值  void big(char *arr[],int size ,char** big1,char** big2)
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 
 void big(char* arr[], int size, char** big1, char** big2)
 {
-	if (size)
+	if (size>1)
 	{
-		*big1 = arr[0];
-		for (int i = 1; i < size; i++)
+		if (strcmp(arr[0], arr[1]) > 0)
+		{
+			*big1 = arr[0];
+			*big2 = arr[1];
+		}
+		else
+		{
+			*big1 = arr[1];
+			*big2 = arr[0];
+		}
+		for (int i = 2; i < size; i++)
 		{
 			if (strcmp(arr[i], *big1) > 0)
 			{
