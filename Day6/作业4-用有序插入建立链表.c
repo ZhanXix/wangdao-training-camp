@@ -24,7 +24,7 @@ void insertOrder(pLNode_t* toHead, pLNode_t* toTail, int newData)
 		pNew->next = *toHead;
 		*toHead = pNew;
 	}
-	else if ((*toTail)->data < newData)
+	else if ((*toTail)->data <= newData)
 	{
 		(*toTail)->next = pNew;
 		*toTail = pNew;
