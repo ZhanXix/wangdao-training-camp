@@ -23,7 +23,7 @@ void listPrint(pStudent_t pHead)
 {
 	while (pHead != NULL)
 	{
-		printf("%3d", pHead->num);
+		printf("%3d %5.2f\n", pHead->num, pHead->score);
 		pHead = pHead->pNext;
 	}
 	putchar('\n');
@@ -80,5 +80,66 @@ void listSortInsert(pStudent_t* ppHead, Student_t** ppTail, int val)
 			pPre->pNext = pNew;
 			*ppTail = pNew;
 		}
+	}
+}
+
+//链表的删除
+void listDelete(pStudent_t* ppHead, Student_t** ppTail, int deleteNum)
+{
+	pStudent_t pCur = *ppHead;
+	pStudent_t pPre = pCur;
+	if (NULL == pCur)
+	{
+		printf("List is empty.\n");
+	}
+	else if (deleteNum == pCur->num)//删除的是头部
+	{
+		*ppHead = pCur->pNext;
+		if (NULL == *ppHead)
+		{
+			*ppTail = NULL;
+		}
+	}
+	else
+	{
+		while (pCur)	//删除的是中间或尾部
+		{
+			if (deleteNum == pCur->num)
+			{
+				pPre->pNext = pCur->pNext;
+				break;
+			}
+			pPre = pCur;
+			pCur = pCur->pNext;
+		}
+		if (NULL == pCur)	//没找到对应节点
+		{
+			printf("Don't find deleteNum.\n");
+			return;
+		}
+		if (pCur == *ppTail)
+		{
+			*ppTail = pPre;
+		}
+	}
+	free(pCur);
+	pCur = NULL;
+}
+
+//链表的修改
+void listModify(pStudent_t pHead, int num, float score)
+{
+	while (pHead)
+	{
+		if (pHead->num == num)
+		{
+			pHead->score = score;
+			break;
+		}
+		pHead = pHead->pNext;
+	}
+	if (NULL == pHead)
+	{
+		printf("Don't find modify num.\n");
 	}
 }
