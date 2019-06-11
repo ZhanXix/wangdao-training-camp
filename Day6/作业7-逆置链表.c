@@ -1,5 +1,5 @@
 /*
-½«Ò»¸öÁ´±íÄæÖÃ¡£ Èç£º 1->2 ->3 ->4 ->5 ->NULL£¬ Êä³ö: 5 -> 4 -> 3 ->2 ->1 -> NULL
+å°†ä¸€ä¸ªé“¾è¡¨é€†ç½®ã€‚ å¦‚ï¼š 1->2 ->3 ->4 ->5 ->NULLï¼Œ è¾“å‡º: 5 -> 4 -> 3 ->2 ->1 -> NULL
 */
 
 #include <stdio.h> 
@@ -11,7 +11,7 @@ typedef struct LNode
 	struct LNode* next;
 }LNode_t, * pLNode_t;
 
-void insertTail(pLNode_t* toHead, pLNode_t* toTail, int newData)//Î²²å·¨
+void insertTail(pLNode_t* toHead, pLNode_t* toTail, int newData)//å°¾æ’æ³•
 {
 	pLNode_t pNew;
 	pNew = (pLNode_t)calloc(1, sizeof(LNode_t));
@@ -28,9 +28,9 @@ void insertTail(pLNode_t* toHead, pLNode_t* toTail, int newData)//Î²²å·¨
 	}
 }
 
-void print(pLNode_t pHead)//Êä³öÁ´±íÊı¾İ
+void print(pLNode_t pHead)//è¾“å‡ºé“¾è¡¨æ•°æ®
 {
-	printf("µ±Ç°Á´±íÎª£º\n");
+	printf("å½“å‰é“¾è¡¨ä¸ºï¼š\n");
 	while (pHead)
 	{
 		printf("%d ", pHead->data);
@@ -39,14 +39,14 @@ void print(pLNode_t pHead)//Êä³öÁ´±íÊı¾İ
 	putchar('\n');
 }
 
-void reverseLinkList(pLNode_t* toHead, pLNode_t* toTail)//ÄæÖÃÁ´±í
+void reverseLinkList(pLNode_t* toHead, pLNode_t* toTail)//é€†ç½®é“¾è¡¨
 {
 	pLNode_t pPre, pCur, pNext;
-	if (*toHead == *toTail)//Á´±íÖ»ÓĞÒ»¸ö½áµã»òÁ´±íÎª¿Õ
+	if (*toHead == *toTail)//é“¾è¡¨åªæœ‰ä¸€ä¸ªç»“ç‚¹æˆ–é“¾è¡¨ä¸ºç©º
 	{
 		return;
 	}
-	if ((*toHead)->next == *toTail)//Á´±íÖ»ÓĞÁ½¸ö½áµã
+	if ((*toHead)->next == *toTail)//é“¾è¡¨åªæœ‰ä¸¤ä¸ªç»“ç‚¹
 	{
 		(*toHead)->next = NULL;
 		(*toTail)->next = *toHead;
@@ -60,7 +60,7 @@ void reverseLinkList(pLNode_t* toHead, pLNode_t* toTail)//ÄæÖÃÁ´±í
 	pNext = pCur->next;
 	while (pCur)
 	{
-		pCur->next = pPre;	//ÄæÖÃ½áµãÖ¸Ïò
+		pCur->next = pPre;	//é€†ç½®ç»“ç‚¹æŒ‡å‘
 		pPre = pCur;
 		pCur = pNext;
 		if (pNext)
@@ -76,14 +76,13 @@ int main()
 {
 	pLNode_t pHead = NULL, pTail = NULL;
 	int newData;
-	int delData;
-	printf("ÊäÈëÒ»×éÕûÊı£¬ÒÔ×é³ÉÁ´±í£º\n");
-	while (scanf("%d", &newData) != EOF)//Î²²å·¨½¨Á¢Á´±í
+	printf("è¾“å…¥ä¸€ç»„æ•´æ•°ï¼Œä»¥ç»„æˆé“¾è¡¨ï¼š\n");
+	while (scanf("%d", &newData) != EOF)//å°¾æ’æ³•å»ºç«‹é“¾è¡¨
 	{
 		insertTail(&pHead, &pTail, newData);
 	}
 	print(pHead);
-	printf("ÄæÖÃÁ´±í...\n");
+	printf("é€†ç½®é“¾è¡¨...\n");
 	reverseLinkList(&pHead, &pTail);
 	print(pHead);
 	system("pause");
