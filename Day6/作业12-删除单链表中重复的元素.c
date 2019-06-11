@@ -1,4 +1,4 @@
-/*É¾³ıµ¥Á´±íÖĞÖØ¸´µÄÔªËØ*/
+/*åˆ é™¤å•é“¾è¡¨ä¸­é‡å¤çš„å…ƒç´ */
 
 #include <stdio.h> 
 #include <stdlib.h> 
@@ -9,7 +9,7 @@ typedef struct LNode
 	struct LNode* next;
 }LNode_t, * pLNode_t;
 
-void insertTail(pLNode_t* toHead, pLNode_t* toTail, int newData)//Î²²å·¨
+void insertTail(pLNode_t* toHead, pLNode_t* toTail, int newData)//å°¾æ’æ³•
 {
 	pLNode_t pNew;
 	pNew = (pLNode_t)calloc(1, sizeof(LNode_t));
@@ -26,9 +26,9 @@ void insertTail(pLNode_t* toHead, pLNode_t* toTail, int newData)//Î²²å·¨
 	}
 }
 
-void print(pLNode_t pHead)//Êä³öÁ´±íÊı¾İ
+void print(pLNode_t pHead)//è¾“å‡ºé“¾è¡¨æ•°æ®
 {
-	printf("µ±Ç°Á´±íÎª£º\n");
+	printf("å½“å‰é“¾è¡¨ä¸ºï¼š\n");
 	while (pHead)
 	{
 		printf("%d ", pHead->data);
@@ -37,15 +37,15 @@ void print(pLNode_t pHead)//Êä³öÁ´±íÊı¾İ
 	putchar('\n');
 }
 
-void delRepeatLinkNode(pLNode_t pHead, pLNode_t* toTail)//É¾³ıÁ´±íÖĞÖØ¸´µÄÔªËØ
+void delRepeatLinkNode(pLNode_t pHead, pLNode_t* toTail)//åˆ é™¤é“¾è¡¨ä¸­é‡å¤çš„å…ƒç´ 
 {
 	pLNode_t pUndone = pHead;
 	pLNode_t pPre, pCur;
-	if (NULL == pUndone) //Á´±íÎª¿ÕÊ±
+	if (NULL == pUndone) //é“¾è¡¨ä¸ºç©ºæ—¶
 	{
 		return;
 	}
-	while (pUndone)//Á´±í²»Îª¿ÕÊ±
+	while (pUndone)//é“¾è¡¨ä¸ä¸ºç©ºæ—¶
 	{
 		pPre = pUndone;
 		pCur = pUndone->next;
@@ -53,7 +53,7 @@ void delRepeatLinkNode(pLNode_t pHead, pLNode_t* toTail)//É¾³ıÁ´±íÖĞÖØ¸´µÄÔªËØ
 		{
 			if (pCur->data == pUndone->data)
 			{
-				if (pCur == *toTail)//É¾³ıµÄÊÇÎ²½áµã
+				if (pCur == *toTail)//åˆ é™¤çš„æ˜¯å°¾ç»“ç‚¹
 				{
 					*toTail = pPre;
 				}
@@ -75,14 +75,14 @@ int main()
 {
 	pLNode_t pHead = NULL, pTail = NULL;
 	int newData;
-	int delData;
-	printf("ÊäÈëÒ»×éÕûÊı£¬ÒÔ×é³ÉÁ´±í£º\n");
-	while (scanf("%d", &newData) != EOF)//Î²²å·¨½¨Á¢Á´±í
+	printf("è¾“å…¥ä¸€ç»„æ•´æ•°ï¼Œä»¥ç»„æˆé“¾è¡¨ï¼š\n");
+	while (scanf("%d", &newData) != EOF)//å°¾æ’æ³•å»ºç«‹é“¾è¡¨
 	{
 		insertTail(&pHead, &pTail, newData);
 	}
 	print(pHead);
-	delRepeatLinkNode(pHead, &pTail);//É¾³ıÖØ¸´ÔªËØ
+	printf("åˆ é™¤é‡å¤å…ƒç´ ...\n");
+	delRepeatLinkNode(pHead, &pTail);//åˆ é™¤é‡å¤å…ƒç´ 
 	print(pHead);
 	system("pause");
 }
