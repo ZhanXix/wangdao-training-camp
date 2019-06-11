@@ -1,4 +1,4 @@
-#include "²ã´Î½¨Á¢¶þ²æÊ÷-tree.h"
+#include "å±‚æ¬¡å»ºç«‹äºŒå‰æ ‘-tree.h"
 
 #define N 10
 int main()
@@ -11,9 +11,9 @@ int main()
 		p[i] = (pNode_t)calloc(1, sizeof(Node_t));
 		p[i]->c = c[i];
 	}
-	for (i = 1; i < N; i++)//Íâ²ã¿ØÖÆÒª½øÊ÷µÄÔªËØ
+	for (i = 1; i < N; i++)//å¤–å±‚æŽ§åˆ¶è¦è¿›æ ‘çš„å…ƒç´ 
 	{
-		if (NULL == p[j]->pleft)//ÄÚ´æ±È½ÏÕÒÔªËØ
+		if (NULL == p[j]->pleft)//å†…å­˜æ¯”è¾ƒæ‰¾å…ƒç´ 
 		{
 			p[j]->pleft = p[i];
 		}
