@@ -41,10 +41,14 @@ void delLinkNode(pLNode_t* toHead, pLNode_t* toTail, int delData)
 {
 	pLNode_t pPer;
 	pLNode_t pCur = *toHead;
-	pLNode_t pNext = (*toHead)->next;
+	if (NULL == *toHead)
+	{
+		printf("错误：链表为空！\n");
+		return;
+	}
 	if (*toHead == *toTail)	//链表只有一个结点
 	{
-		if ((*toHead)->data != delData) 
+		if ((*toHead)->data != delData)
 		{
 			printf("错误：没有匹配的数据！\n");
 			return;
@@ -68,7 +72,11 @@ void delLinkNode(pLNode_t* toHead, pLNode_t* toTail, int delData)
 		{
 			if (pCur->data == delData)
 			{
-				pPer->next = pNext;
+				pPer->next = pCur->next;
+				if (NULL == pCur->next)//删除尾结点
+				{
+					*toTail = pPer;
+				}
 				free(pCur);
 				break;
 			}
@@ -76,13 +84,12 @@ void delLinkNode(pLNode_t* toHead, pLNode_t* toTail, int delData)
 			{
 				pPer = pCur;
 				pCur = pCur->next;
-				if (NULL == pNext) 
-				{
-					printf("错误：没有匹配的数据！\n");
-					return;
-				}
-				pNext = pNext->next;
 			}
+		}
+		if (NULL == pCur)
+		{
+			printf("错误：没有匹配的数据！\n");
+			return;
 		}
 	}
 }
@@ -98,9 +105,10 @@ int main()
 		insertTail(&pHead, &pTail, newData);
 	}
 	print(pHead);
-	printf("输入要删除的那个结点数据：\n");
-	scanf("%d", &delData);
-	delLinkNode(&pHead, &pTail, delData);
-	print(pHead);
+	while (printf("输入要删除的那个结点数据：\n"), scanf("%d", &delData) != EOF)
+	{
+		delLinkNode(&pHead, &pTail, delData);
+		print(pHead);
+	}
 	system("pause");
 }
