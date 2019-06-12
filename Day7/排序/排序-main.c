@@ -17,7 +17,7 @@ int main()
 	//time(NULL)返回距离1970.1.1的秒数
 	for (i = 0; i < N; i++)
 	{
-		arr[i] = rand() % 100;
+		arr[i] = rand() % R;
 	}
 	printf("rand %d complete.\n", N);
 	//arrPrint(arr);	//N过大时就不合适再输出每个数了
