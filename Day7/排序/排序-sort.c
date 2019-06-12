@@ -84,14 +84,14 @@ int partition(int* arr, int left, int right)
 	{
 		if (arr[right] > arr[i])
 		{
-			SWAP(arr[i], arr[k]); 
+			SWAP(arr[i], arr[k]);
 			k++;
-		}	
+		}
 	}
 	SWAP(arr[k], arr[right]);
 	return k;
 }
-void arrQuick(int* arr,int left,int right)
+void arrQuick(int* arr, int left, int right)
 {
 	int pivot;
 	if (left < right)
@@ -99,5 +99,42 @@ void arrQuick(int* arr,int left,int right)
 		pivot = partition(arr, left, right);
 		arrQuick(arr, left, pivot - 1);
 		arrQuick(arr, pivot + 1, right);
+	}
+}
+
+//堆排序
+void adjustMaxHeap(int* arr, int adjustPos, int arrLen)
+{
+	int dad = adjustPos;
+	int son = 2 * dad + 1;
+	while (son < arrLen)
+	{
+		if (son + 1 < arrLen && arr[son] < arr[son + 1])
+		{
+			son++;
+		}
+		if (arr[dad] < arr[son])
+		{
+			SWAP(arr[dad], arr[son]);
+			dad = son;
+			son = 2 * dad + 1;	//这里需要注意，实际上调整是一个循环的过程
+		}
+		else {
+			break;
+		}
+	}
+}
+void arrHeap(int* arr)
+{
+	int i;
+	for (i = N / 2 - 1; i >= 0; i--)//调整为一个大根堆
+	{
+		adjustMaxHeap(arr, i, N);
+	}
+	SWAP(arr[0], arr[N - 1]);
+	for (i = N - 1; i > 1; i--)
+	{
+		adjustMaxHeap(arr, 0, i);
+		SWAP(arr[0], arr[i-1]);
 	}
 }

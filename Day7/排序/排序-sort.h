@@ -12,4 +12,4 @@ void arrSelect(int* arr);
 void arrInsert(int* arr);
 void arrShell(int* arr);
 void arrQuick(int* arr, int left, int right);
-
+void arrHeap(int* arr);

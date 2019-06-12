@@ -22,7 +22,8 @@ int main()
 	//arrSelect(arr);
 	//arrInsert(arr);
 	//arrShell(arr);
-	arrQuick(arr, 0, N-1);
+	//arrQuick(arr, 0, N-1);
+	arrHeap(arr);
 	//qsort(arr, N, sizeof(int), cmp);
 	end = time(NULL);
 	arrPrint(arr);
