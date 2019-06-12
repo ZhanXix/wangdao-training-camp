@@ -138,3 +138,23 @@ void arrHeap(int* arr)
 		SWAP(arr[0], arr[i-1]);
 	}
 }
+
+//计数排序
+void arrCount(int* arr)
+{
+	int i, j, k;
+	int count[R] = { 0 };//R值很大时，计数排序不合适
+	for (i = 0; i < N; i++)
+	{
+		count[arr[i]]++;
+	}
+	k = 0;
+	for (j = 0; j < R; j++)//要填入值的范围
+	{
+		for (i = 0; i < count[j]; i++)//要填入的值的数量
+		{
+			arr[k] = j;//填入相应排好的值
+			k++;
+		}
+	}
+}

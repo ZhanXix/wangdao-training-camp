@@ -23,7 +23,8 @@ int main()
 	//arrInsert(arr);
 	//arrShell(arr);
 	//arrQuick(arr, 0, N-1);
-	arrHeap(arr);
+	//arrHeap(arr);
+	arrCount(arr);
 	//qsort(arr, N, sizeof(int), cmp);
 	end = time(NULL);
 	arrPrint(arr);
