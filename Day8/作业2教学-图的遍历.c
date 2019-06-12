@@ -250,7 +250,7 @@ void BFS(LGraph G)
 {
 	int head = 0;
 	int rear = 0;
-	int queue[MAX];     // 辅组队列
+	int queue[MAX];     // 辅助队列
 	int visited[MAX];   // 顶点访问标记
 	int i, j, k;
 	ENode* node;
