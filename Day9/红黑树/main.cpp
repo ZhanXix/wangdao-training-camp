@@ -329,7 +329,7 @@ static void rbtree_right_rotate(RBRoot *root, Node *y)
  */
 static void rbtree_insert_fixup(RBRoot *root, Node *node)
 {
-    Node *parent, *gparent;
+    Node *parent, *gparent;		//父结点，祖父结点
 
     // 若“父节点存在，并且父节点的颜色是红色”
     while ((parent = rb_parent(node)) && rb_is_red(parent))
@@ -378,7 +378,7 @@ static void rbtree_insert_fixup(RBRoot *root, Node *node)
                     rb_set_black(parent);
                     rb_set_red(gparent);
                     node = gparent;
-                    continue;//继续进行调整
+                    continue;//以祖父作为孩子，继续进行调整
                 }
             }
 
