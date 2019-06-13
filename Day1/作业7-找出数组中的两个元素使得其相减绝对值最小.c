@@ -49,3 +49,5 @@ int main()
 	} while (getchar() == 'y');
 	system("pause");
 }
+
+//教学：可以使用位图
