@@ -7,7 +7,7 @@ int main()
 	char c;
 	int ret;
 	char buf[5000];
-	fp = fopen("file.txt‪","r+");	//可以是相对路径（相对于当前目录的路径），也可以是绝对路径（从盘符开始的路径）
+	fp = fopen("file.txt","r+");	//可以是相对路径（相对于当前目录的路径），也可以是绝对路径（从盘符开始的路径）
 	if (NULL == fp)
 	{
 		perror("fopen");
