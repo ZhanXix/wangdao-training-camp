@@ -393,8 +393,8 @@ static void rbtree_insert_fixup(RBRoot *root, Node *node)
             }
 
             // Case 3条件：叔叔是黑色，且当前节点是右孩子。
-            rb_set_black(parent);//旋转前设置好颜色
-            rb_set_red(gparent);//旋转前设置好颜色
+            rb_set_black(parent);//旋转前设置好颜色，父亲设为黑色
+            rb_set_red(gparent);//旋转前设置好颜色，祖父设为红色
             rbtree_left_rotate(root, gparent);
         }
     }
