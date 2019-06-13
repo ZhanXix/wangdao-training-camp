@@ -50,3 +50,5 @@ int main()
 	str = NULL;
 	system("pause");
 }
+
+//教学：从后往前放，可以避免覆盖
