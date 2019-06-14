@@ -18,6 +18,7 @@ int main(int argc,char *argv[])
 		printf("error args\n");
 		goto error;
 	}
+	fp = fopen(argv[1], "r+");
 	fprintf(fp,"%d %5.2f %s\n", s.num, s.score, s.name);
 	//fprintf(stdout, "%d %5.2f %s\n", s.num, s.score, s.name);  标准输出，和printf一样会打印到屏幕上
 error:
