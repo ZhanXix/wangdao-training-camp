@@ -296,3 +296,29 @@ for -- 8985
 
 处理完毕，用时 5 秒
 */
+
+/* 
+ * 教学1——使用windows接口得到更高精度的时间
+ * #include <windows.h>
+ * GetTickCount
+ * 这个接口的返回值是操作系统启动后经过的毫秒数，类型是DWORD(typedef unsigned long DWORD)
+ */
+ 
+ /*
+  * 教学2-使用Hash来做这道题
+  *
+int elf_hash(char *key)
+{
+	int h = 0, g;
+	while (*key)
+	{
+		h = (h << 4) + *key++;
+		g = h & 0xf0000000;
+		if (g)
+			h ^= g >> 24;
+		h &= ~g;
+	}
+	return h % MAXKEY;
+}
+  *	  
+  */
