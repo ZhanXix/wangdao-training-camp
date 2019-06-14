@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+	char c;
+	printf("please put in char: \n");
+	while((c=getchar())!=EOF)
+	{
+		if(c >= 'a' && c <= 'z')
+		{
+			c -= 32;
+		}
+		putchar(c);
+	}
+	return 0;
+}
