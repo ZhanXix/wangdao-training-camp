@@ -7,7 +7,7 @@ int main(int argc, char* argv[])	//参数的数量、具体参数（本身的exe程序算第一个参
 	int i;
 	char buf[1024];
 	FILE* fp;
-	if (NULL == argv[1])
+	if (argc != 2)
 	{
 		printf("error args\n");
 		goto error;
