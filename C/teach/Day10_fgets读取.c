@@ -20,8 +20,8 @@ int main(int argc, char* argv[])	//参数的数量、具体参数（本身的exe程序算第一个参
 	}
 	while (memset(buf, 0, sizeof(buf)), (fgets(buf, sizeof(buf), fp)) != NULL)
 	{
-		buf[0] -= 32;	//把首字母改为大学
-		if ('\n' == buf[strlen(buf) - 1])
+		buf[0] -= 32;	//把首字母改为大写
+		if ('\n' == buf[strlen(buf) - 1])	//字符串包含\n，就要向前多偏移一个字符
 		{
 			fseek(fp, -strlen(buf) - 1, SEEK_CUR);
 		}
