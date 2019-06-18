@@ -23,4 +23,8 @@ sudo apt install arc-theme
 更换锁屏、桌面背景
 “优化-桌面”去掉回收站图标
 
+sudo apt install chrome-gnome-shell
+登录网站 extensions.gnome.org
+点击网页上的Click here to install browser extension
+在网页上安装插件User Themes（把右上角的OFF调成ON即可）
 
