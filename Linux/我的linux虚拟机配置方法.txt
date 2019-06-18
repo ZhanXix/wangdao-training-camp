@@ -1,0 +1,26 @@
+1.VMware安装Ubuntu18.04
+不使用简易安装，即安装时选择稍后安装操作系统。
+使用默认设置即可，虚拟机设置完成后把虚拟光驱改成镜像文件，再开机。
+安装时选择中文。
+
+2.英文设置
+由于中文下的初始文件夹都是中文名不好操作，所以再下载英文包，把系统改成英文，让系统自动改完文件夹名，再调回中文，这次选择不改文件夹名。
+设置中配置好IP地址。
+
+3.必备工具安装
+sudo apt install open-vm-tools open-vm-tools-desktop
+sudo apt install net-tools
+sudo apt install vim
+sudo apt install ssh
+sudo apt install gcc
+
+4.美化
+sudo apt install gnome-tweak-tool
+“优化-字体”中调整缩放比例 1.20
+sudo apt install arc-theme
+“优化-外观”更换主题-应用程序  Arc-Dark
+勾选终端“编辑-首选项”下“配置文件-未命名-颜色”中使用透明背景
+更换锁屏、桌面背景
+“优化-桌面”去掉回收站图标
+
+
