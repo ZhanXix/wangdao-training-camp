@@ -29,3 +29,12 @@ sudo apt install chrome-gnome-shell
 在网页上安装插件User Themes（把右上角的OFF调成ON即可）
 “优化-外观”更换主题-shell Arc-Dark
 
+5.修改~/.bashrc
+（只对本用户生效）
+将 force_color_prompt=yes 这行的注释#去掉
+修改alias ll='ls -lh'
+然后在终端里. .bashrc     (或source .bashrc)
+
+
+
+
