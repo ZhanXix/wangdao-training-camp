@@ -27,4 +27,5 @@ sudo apt install chrome-gnome-shell
 登录网站 extensions.gnome.org
 点击网页上的Click here to install browser extension
 在网页上安装插件User Themes（把右上角的OFF调成ON即可）
+“优化-外观”更换主题-shell Arc-Dark
 
