@@ -37,6 +37,22 @@ sudo apt install chrome-gnome-shell
 修改alias ll='ls -lh'
 然后在终端里. .bashrc     (或source .bashrc)
 
+6.vim美化
+来自GitHub项目 amix/vimrc
+（1）git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+（2）sh ~/.vim_runtime/install_awesome_vimrc.sh
+（3）新建文件 ~/.vim_runtime/my_configs.vim
+（4）在my_configs.vim添加（龙哥配置文件的内容）
+set nu
+set hlsearch
+syntax on
+set cursorline
+set tabstop=4
+set cindent
+set shiftwidth=4
+set path +=.,/usr/include
+set fileencodings=utf-8,gb18030,gbk,gb2312
+
 
 
 
