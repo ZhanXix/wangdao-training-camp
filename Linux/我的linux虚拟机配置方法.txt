@@ -64,6 +64,13 @@ git config --global color.ui true
 登录GitHub，打开“Settings"-"SSH keys"-"Add SSH key"，填上任意title，在文本框里粘贴id_rsa.pub内容
 测试是否连接上：ssh -T git@github.com
 
+8.安装youcompleteme
+(安装vimplus时可能出现异常)
+(只对当前用户有效)
+sudo apt install vim-youcompleteme
+vim-addons install youcompleteme
+
+
 
 
 
