@@ -17,6 +17,9 @@ int main(int args,char *argv[])
         }
     }
     seekdir(dir,pos);
+    printf("--------------------------------\n");
+    p=readdir(dir);
+    printf("ino=%ld len=%d type=%d filename=%s\n",p->d_ino,p->d_reclen,p->d_type,p->d_name);
     closedir(dir);
     return 0;
 }
