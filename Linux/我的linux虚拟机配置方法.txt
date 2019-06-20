@@ -13,7 +13,7 @@ sudo apt install net-tools
 sudo apt install vim
 sudo apt install ssh
 sudo apt install gcc
-sudo apt install git -y
+sudo apt install git
 sudo apt  install tree
 sudo apt install make
 
