@@ -62,6 +62,7 @@ git config --global user.name “xxxx”
 git config --global color.ui true
 (若无sshkey)ssh-keygen -t rsa -C "xxxx@xxxx"
 登录GitHub，打开“Settings"-"SSH keys"-"Add SSH key"，填上任意title，在文本框里粘贴id_rsa.pub内容
+测试是否连接上：ssh -T git@github.com
 
 
 
