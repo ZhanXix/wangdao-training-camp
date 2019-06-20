@@ -15,6 +15,7 @@ sudo apt install ssh
 sudo apt install gcc
 sudo apt install git -y
 sudo apt  install tree
+sudo apt install make
 
 
 4.√¿ªØ
