@@ -13,7 +13,7 @@ sudo apt install net-tools
 sudo apt install vim
 sudo apt install ssh
 sudo apt install gcc
-sudo apt install git
+sudo apt-get install g++
 sudo apt  install tree
 sudo apt install make
 
@@ -54,6 +54,14 @@ set cindent
 set shiftwidth=4
 set path +=.,/usr/include
 set fileencodings=utf-8,gb18030,gbk,gb2312
+
+7.配置git
+sudo apt install git
+git config --global user.email “xxxx@xxxx”
+git config --global user.name “xxxx”
+git config --global color.ui true
+(若无sshkey)ssh-keygen -t rsa -C "xxxx@xxxx"
+登录GitHub，打开“Settings"-"SSH keys"-"Add SSH key"，填上任意title，在文本框里粘贴id_rsa.pub内容
 
 
 
