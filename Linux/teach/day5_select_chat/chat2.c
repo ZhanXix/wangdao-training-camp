@@ -24,7 +24,12 @@ int main(int argc,char *argv[])
         if(FD_ISSET(fdr,&rdset))
         {
             memset(buf,0,sizeof(buf));
-            read(fdr,buf,sizeof(buf));
+            ret=read(fdr,buf,sizeof(buf));
+            if(0==ret)
+            {
+                printf("byebye\n");
+                break;  
+            }
             printf("%s\n",buf);
         }
     }
