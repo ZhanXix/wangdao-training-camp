@@ -71,8 +71,20 @@ sudo apt install vim-youcompleteme
 vim-addons install youcompleteme
 
 9.安装vimplus
-git clone 
+来自GitHub项目chxuan/vimplus
+git clone https://github.com/chxuan/vimplus.git ~/.vimplus
+cd ~/.vimplus
+./install.sh
+
 （临时关闭vimplus的方法：mv .vimrc  backup.vimrc）
+
+（卸载：）
+cd ~/.vimplus
+./unistall.sh
+rm ~/.vimplus
+
+
+
 
 
 
