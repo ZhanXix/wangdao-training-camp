@@ -1,3 +1,4 @@
+//将标准输出重定向到log1文件，标准错误输出重定向到log2文件
 #include <func.h>
 
 int main(int argc,char *argv[])
