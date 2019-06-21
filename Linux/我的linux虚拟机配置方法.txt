@@ -70,6 +70,11 @@ git config --global color.ui true
 sudo apt install vim-youcompleteme
 vim-addons install youcompleteme
 
+9.安装vimplus
+git clone 
+（临时关闭vimplus的方法：mv .vimrc  backup.vimrc）
+
+
 
 
 
