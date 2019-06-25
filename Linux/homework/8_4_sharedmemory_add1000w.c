@@ -1,3 +1,4 @@
+//两个进程对一个共享内存各加1000万，查看最后结果
 #include <func.h>
 
 int main(int argc,char *argv[])
