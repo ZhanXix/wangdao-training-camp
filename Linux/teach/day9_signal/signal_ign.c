@@ -1,9 +1,5 @@
 #include <func.h>
 
-void sigFunc(int signum)
-{
-    printf("%d is coming\n",signum);
-}
 int main(int argc,char *argv[])
 {
     if(signal(SIGINT,SIG_IGN)==SIG_ERR){
