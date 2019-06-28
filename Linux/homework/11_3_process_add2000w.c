@@ -42,6 +42,7 @@ int main(int argc,char *argv[])
         wait(NULL);
         gettimeofday(&end,NULL);
         printf("最终数值%d,用时%ldus\n",pData->val,1000000*(end.tv_sec-begin.tv_sec)+end.tv_usec-begin.tv_usec);
+        shmctl(shmid,IPC_RMID,NULL);//删除共享内存
     }
     return 0;
 }
