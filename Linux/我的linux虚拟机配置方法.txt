@@ -83,6 +83,9 @@ cd ~/.vimplus
 ./unistall.sh
 rm ~/.vimplus
 
+10.安装VS
+离线安装包安装方法 dpkg -i
+
 
 
 
