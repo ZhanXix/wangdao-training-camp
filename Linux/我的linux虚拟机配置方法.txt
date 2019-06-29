@@ -85,6 +85,8 @@ rm ~/.vimplus
 
 10.安装VS
 离线安装包安装方法 dpkg -i
+安装语言包插件
+ctrl+shift+p搜索language，configue display language，选择中文
 
 
 
