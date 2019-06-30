@@ -1,3 +1,8 @@
+//这一题day10的时候就写了，但是当时没有看清楚题目要求，全部用的是管道。所以今天重写了。
+
+//注：开启顺序必须是先开chatA再开chatA1、先开chatB再开chatB1，否则会出现由于未初始化而产生的读取错误。
+//关闭则是任意在chatA或者chatB窗口使用ctrl+C，则会实现四个进程全部关闭且清理全部管道文件、信号量、共享内存、消息队列
+
 #include "func.h" 
 struct msgbuf{
     char type;
