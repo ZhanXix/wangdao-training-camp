@@ -1,3 +1,4 @@
+//一个客户端，一个服务器端，客户端向服务器发送一句话，服务器向客户端发送一句话
 #include "func.h"
 
 int main(int argc,char *argv[])
