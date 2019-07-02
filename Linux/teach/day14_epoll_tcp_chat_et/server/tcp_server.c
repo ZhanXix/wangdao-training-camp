@@ -15,10 +15,11 @@ int main(int argc, char *argv[])
     char buf[10];
     int epfd=epoll_create(1);
     struct epoll_event event,evs[2];
-    event.events=EPOLLIN|EPOLLET;//监听读事件
+    event.events=EPOLLIN;//监听读事件
     event.data.fd=STDIN_FILENO;
     ret=epoll_ctl(epfd,EPOLL_CTL_ADD,STDIN_FILENO,&event);
     ERROR_CHECK(ret,-1,"epoll_ctl");
+    setNonBlock(newFd);
 	event.events=EPOLLIN|EPOLLET;//监听读事件,边沿触发
     event.data.fd=newFd;
     ret=epoll_ctl(epfd,EPOLL_CTL_ADD,newFd,&event);
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
                     {
                         break;
                     }else{
-                    printf("%s\n", buf);
+                    printf("%s", buf);
                     }
                 }
                 printf("\n");
