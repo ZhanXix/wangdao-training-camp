@@ -1,4 +1,4 @@
-//通过socket实现UDP通信
+//通过udp实现即时聊天
 #include "func.h"
 int main()
 {

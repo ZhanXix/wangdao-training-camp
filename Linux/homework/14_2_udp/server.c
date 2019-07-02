@@ -1,3 +1,4 @@
+//通过socket实现UDP通信
 #include "func.h"
 int main()
 {
