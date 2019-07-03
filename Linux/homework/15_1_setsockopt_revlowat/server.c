@@ -1,3 +1,4 @@
+//设定rcvlowat选项，感受效果
 #include "func.h"
 int main()
 {
