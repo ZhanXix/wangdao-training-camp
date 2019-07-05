@@ -52,6 +52,7 @@ int main(int argc,char *argv[])
                 {
                     wait(NULL);
                 }
+				printf("I will exit ok\n");
                 exit(0);
             }
             if(evs[i].data.fd==socketFd)
