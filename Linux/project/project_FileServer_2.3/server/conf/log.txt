@@ -1,0 +1,158 @@
+Tue Jul 16 15:10:29 2019  **********服务器启动**********
+Tue Jul 16 15:10:29 2019 收到连接请求 newFd=8
+Tue Jul 16 15:10:38 2019 xiaoming 登陆成功
+Tue Jul 16 15:10:40 2019 xiaoming -操作- ls
+Tue Jul 16 15:10:42 2019 xiaoming -操作- ls
+Tue Jul 16 15:10:55 2019 xiaoming -操作- puts
+Tue Jul 16 15:11:08 2019 xiaoming 退出登陆
+Tue Jul 16 15:11:17 2019**********服务器结束运行**********
+
+Tue Jul 16 15:12:41 2019  **********服务器启动**********
+Tue Jul 16 15:12:44 2019 收到连接请求 newFd=8
+Tue Jul 16 15:12:48 2019 xiaoming 登陆成功
+Tue Jul 16 15:12:52 2019 xiaoming -操作- ls
+Tue Jul 16 15:13:01 2019 xiaoming -操作- gets
+Tue Jul 16 15:13:01 2019 xiaoming 退出登陆
+Tue Jul 16 15:29:18 2019  **********服务器启动**********
+Tue Jul 16 15:29:25 2019 收到连接请求 newFd=8
+Tue Jul 16 15:29:29 2019 test 登陆成功
+Tue Jul 16 15:29:31 2019 test -操作- ls
+Tue Jul 16 15:29:37 2019 test -操作- gets
+Tue Jul 16 15:29:42 2019 test 退出登陆
+Tue Jul 16 15:29:43 2019 收到连接请求 newFd=8
+Tue Jul 16 15:29:47 2019 test 登陆成功
+Tue Jul 16 15:29:48 2019 test -操作- ls
+Tue Jul 16 15:29:52 2019 test -操作- puts
+Tue Jul 16 15:29:54 2019 test -操作- ls
+Tue Jul 16 15:30:03 2019 test -操作- gets
+Tue Jul 16 15:30:43 2019 test -操作- gets
+Tue Jul 16 15:30:53 2019 test -操作- gets
+Tue Jul 16 15:30:58 2019 test -操作- ls
+Tue Jul 16 15:30:59 2019 test 退出登陆
+Tue Jul 16 15:31:16 2019**********服务器结束运行**********
+
+Tue Jul 16 15:40:21 2019  **********服务器启动**********
+Tue Jul 16 15:40:26 2019 收到连接请求 newFd=8
+Tue Jul 16 15:40:31 2019 xiaoming 登陆成功
+Tue Jul 16 15:40:32 2019 xiaoming -操作- ls
+Tue Jul 16 15:40:37 2019 xiaoming 退出登陆
+Tue Jul 16 15:40:38 2019 收到连接请求 newFd=8
+Tue Jul 16 15:40:42 2019 test 登陆成功
+Tue Jul 16 15:40:43 2019 test -操作- ls
+Tue Jul 16 15:40:58 2019 test -操作- gets
+Tue Jul 16 15:41:09 2019 test -操作- 
+Tue Jul 16 15:41:09 2019 test 退出登陆
+Tue Jul 16 15:46:25 2019  **********服务器启动**********
+Tue Jul 16 15:46:28 2019 收到连接请求 newFd=8
+Tue Jul 16 15:46:34 2019 test 登陆成功
+Tue Jul 16 15:46:35 2019 test -操作- ls
+Tue Jul 16 15:46:43 2019 test -操作- gets
+Tue Jul 16 15:46:51 2019 test -操作- ls
+Tue Jul 16 15:47:20 2019  **********服务器启动**********
+Tue Jul 16 15:47:22 2019 收到连接请求 newFd=8
+Tue Jul 16 15:47:26 2019 test 登陆成功
+Tue Jul 16 15:47:27 2019 test -操作- ls
+Tue Jul 16 15:47:37 2019 test -操作- gets
+Tue Jul 16 15:47:50 2019 test -操作- ls
+Tue Jul 16 15:47:57 2019 test -操作- mkdir
+Tue Jul 16 15:47:57 2019 test -操作- ls
+Tue Jul 16 15:47:59 2019 test 退出登陆
+Tue Jul 16 15:50:12 2019  **********服务器启动**********
+Tue Jul 16 15:50:13 2019 收到连接请求 newFd=8
+Tue Jul 16 15:50:19 2019 test 登陆成功
+Tue Jul 16 15:50:19 2019 test -操作- ls
+Tue Jul 16 15:50:28 2019 test -操作- gets
+Tue Jul 16 15:50:40 2019  **********服务器启动**********
+Tue Jul 16 15:50:40 2019 收到连接请求 newFd=8
+Tue Jul 16 15:50:50 2019 xiaoming 登陆成功
+Tue Jul 16 15:50:51 2019 xiaoming -操作- ls
+Tue Jul 16 15:50:55 2019 xiaoming -操作- puts
+Tue Jul 16 15:51:11 2019 xiaoming -操作- gets
+Tue Jul 16 15:51:15 2019 xiaoming 退出登陆
+Tue Jul 16 15:51:25 2019**********服务器结束运行**********
+
+Tue Jul 16 15:51:28 2019  **********服务器启动**********
+Tue Jul 16 15:51:33 2019 收到连接请求 newFd=8
+Tue Jul 16 15:51:38 2019 xiaoming 登陆成功
+Tue Jul 16 15:51:39 2019 xiaoming -操作- ls
+Tue Jul 16 15:51:43 2019 xiaoming -操作- gets
+Tue Jul 16 15:51:56 2019 xiaoming -操作- gets
+Tue Jul 16 15:52:08 2019 xiaoming 退出登陆
+Tue Jul 16 16:02:37 2019  **********服务器启动**********
+Tue Jul 16 16:07:09 2019 收到连接请求 newFd=8
+Tue Jul 16 16:07:14 2019 xiaoming 登陆成功
+Tue Jul 16 16:07:15 2019 xiaoming -操作- ls
+Tue Jul 16 16:07:24 2019 xiaoming -操作- gets
+Tue Jul 16 16:07:24 2019 xiaoming 退出登陆
+Tue Jul 16 16:08:56 2019  **********服务器启动**********
+Tue Jul 16 16:09:00 2019 收到连接请求 newFd=8
+Tue Jul 16 16:09:03 2019 xiaoming 登陆成功
+Tue Jul 16 16:09:04 2019 xiaoming -操作- ls
+Tue Jul 16 16:09:13 2019 xiaoming -操作- gets
+Tue Jul 16 16:10:16 2019  **********服务器启动**********
+Tue Jul 16 16:10:20 2019 收到连接请求 newFd=8
+Tue Jul 16 16:10:26 2019 xiaoming 登陆成功
+Tue Jul 16 16:10:28 2019 xiaoming -操作- ls
+Tue Jul 16 16:10:35 2019 xiaoming -操作- gets
+Tue Jul 16 16:10:35 2019 xiaoming 退出登陆
+Tue Jul 16 16:10:57 2019 收到连接请求 newFd=8
+Tue Jul 16 16:11:02 2019 xiaoming 登陆成功
+Tue Jul 16 16:11:03 2019 xiaoming -操作- ls
+Tue Jul 16 16:11:13 2019 xiaoming -操作- gets
+Tue Jul 16 16:11:18 2019 xiaoming 退出登陆
+Tue Jul 16 16:11:41 2019**********服务器结束运行**********
+
+Tue Jul 16 16:14:39 2019  **********服务器启动**********
+Tue Jul 16 16:14:41 2019 收到连接请求 newFd=8
+Tue Jul 16 16:15:05 2019 收到连接请求 newFd=9
+Tue Jul 16 16:15:12 2019 test 登陆成功
+Tue Jul 16 16:15:13 2019 test -操作- ls
+Tue Jul 16 16:15:20 2019 test -操作- mkdir
+Tue Jul 16 16:15:22 2019 test -操作- ls
+Tue Jul 16 16:15:25 2019 test -操作- cd
+Tue Jul 16 16:15:38 2019 test -操作- puts
+Tue Jul 16 16:15:38 2019 test -操作- puts
+Tue Jul 16 16:15:39 2019 test -操作- ls
+Tue Jul 16 16:15:47 2019 xiaoming 登陆成功
+Tue Jul 16 16:15:48 2019 xiaoming -操作- ls
+Tue Jul 16 16:15:59 2019 test -操作- puts
+Tue Jul 16 16:16:15 2019 xiaoming -操作- remove
+Tue Jul 16 16:16:18 2019 xiaoming -操作- ls
+Tue Jul 16 16:16:19 2019 xiaoming -操作- cd
+Tue Jul 16 16:16:20 2019 xiaoming -操作- 
+Tue Jul 16 16:16:20 2019 xiaoming -操作- ls
+Tue Jul 16 16:16:23 2019 xiaoming -操作- cd
+Tue Jul 16 16:16:27 2019 xiaoming -操作- puts
+Tue Jul 16 16:16:30 2019 test -操作- ls
+Tue Jul 16 16:16:35 2019 test -操作- remove
+Tue Jul 16 16:16:48 2019 xiaoming -操作- cd
+Tue Jul 16 16:16:50 2019 xiaoming -操作- ls
+Tue Jul 16 16:16:56 2019 xiaoming -操作- remove
+Tue Jul 16 16:16:57 2019 xiaoming -操作- ls
+Tue Jul 16 16:17:01 2019 xiaoming -操作- remove
+Tue Jul 16 16:17:03 2019 test -操作- ls
+Tue Jul 16 16:17:08 2019 test -操作- remove
+Tue Jul 16 16:17:09 2019 test -操作- ls
+Tue Jul 16 16:17:11 2019 test -操作- cd
+Tue Jul 16 16:17:12 2019 test -操作- ls
+Tue Jul 16 16:17:15 2019 test -操作- rmdir
+Tue Jul 16 16:17:18 2019 xiaoming -操作- rmdir
+Tue Jul 16 16:17:20 2019 xiaoming -操作- cd
+Tue Jul 16 16:17:20 2019 xiaoming -操作- ls
+Tue Jul 16 16:17:26 2019 xiaoming -操作- remove
+Tue Jul 16 16:17:27 2019 xiaoming -操作- ls
+Tue Jul 16 16:17:28 2019 xiaoming -操作- cd
+Tue Jul 16 16:17:31 2019 xiaoming -操作- ls
+Tue Jul 16 16:17:36 2019 test -操作- rmdir
+Tue Jul 16 16:17:40 2019 test -操作- ls
+Tue Jul 16 16:17:45 2019 test -操作- remove
+Tue Jul 16 16:17:46 2019 test -操作- ls
+Tue Jul 16 16:17:59 2019 test 退出登陆
+Tue Jul 16 16:18:00 2019 xiaoming -操作- ls
+Tue Jul 16 16:18:03 2019 xiaoming -操作- rmdir
+Tue Jul 16 16:18:04 2019 xiaoming -操作- ls
+Tue Jul 16 16:18:06 2019 xiaoming -操作- cd
+Tue Jul 16 16:18:09 2019 xiaoming -操作- 
+Tue Jul 16 16:18:09 2019 xiaoming 退出登陆
+Tue Jul 16 16:18:20 2019**********服务器结束运行**********
+
