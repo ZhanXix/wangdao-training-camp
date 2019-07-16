@@ -48,6 +48,17 @@ void *Thread_Func(void *p)
             continue;
         }
         printf("登陆成功！用户名：%s\n",username);
+        //写日志
+        time_t nowtime=time(NULL);
+        char logBuf[128]={0};
+        strcpy(logBuf,ctime(&nowtime));
+        logBuf[strlen(logBuf)-1]=0;
+        sprintf(logBuf,"%s %s 登陆成功\n",logBuf,username);
+        pthread_mutex_lock(&pT->log_mutex);//加锁
+        int logFd=open("../conf/log.txt",O_RDWR|O_APPEND);
+        ret=write(logFd,logBuf,strlen(logBuf));
+        close(logFd);
+        pthread_mutex_unlock(&pT->log_mutex);//解锁
         //接收命令
         File_Data_t fileData;
         bzero(&fileData,sizeof(fileData));
@@ -58,13 +69,39 @@ void *Thread_Func(void *p)
             {
                 break;
             }
+            //处理命令
             ret=Command_Deal(fileData.dataBuf,clientFd,&code,username);
             if(-1==ret)
             {
                 break;
             }
+            //写日志
+            nowtime=time(NULL);
+            bzero(logBuf,sizeof(logBuf));
+            strcpy(logBuf,ctime(&nowtime));
+            logBuf[strlen(logBuf)-1]=0;
+            sprintf(logBuf,"%s %s -操作- ",logBuf,username);
+            strcat(logBuf,fileData.dataBuf);
+            strcat(logBuf,"\n");
+            pthread_mutex_lock(&pT->log_mutex);//加锁
+            logFd=open("../conf/log.txt",O_RDWR|O_APPEND);
+            ret=write(logFd,logBuf,strlen(logBuf));
+            close(logFd);
+            pthread_mutex_unlock(&pT->log_mutex);//解锁
+            printf("writeLog:%s",logBuf);
             bzero(&fileData,sizeof(fileData));
         }
+        //写日志
+        nowtime=time(NULL);
+        strcpy(logBuf,ctime(&nowtime));
+        logBuf[strlen(logBuf)-1]=0;
+        sprintf(logBuf,"%s %s 退出登陆\n",logBuf,username);
+        pthread_mutex_lock(&pT->log_mutex);//加锁
+        logFd=open("../conf/log.txt",O_RDWR|O_APPEND);
+        ret=write(logFd,logBuf,strlen(logBuf));
+        close(logFd);
+        pthread_mutex_unlock(&pT->log_mutex);//解锁
+        //断开客户端连接
         close(clientFd);
     }
     return NULL;
@@ -340,6 +377,7 @@ int Command_puts(int clientFd,int *pCode,MYSQL *connect,char *username)
         if(row) //存在同MD5文件
         {
             printf("puts SUCCESS:quick\n");
+            fileSize=atoi(row[3]);
             SEND_ERROR;
         }else{
             printf("puts SUCCESS:开始文件传输\n");

@@ -9,6 +9,7 @@ int ThreadPool_Init(pThread_Pool_Info_t pThreadPool,int ThreadNum)
     pThreadPool->pthId=(pthread_t*)calloc(pThreadPool->threadNum,sizeof(pthread_t));
     WorkQueue_Init(&pThreadPool->pWorkQueue,ThreadNum*2);
     pThreadPool->WorkFlag=0;
+    pthread_mutex_init(&pThreadPool->log_mutex,NULL);
     //printf("线程池初始化完毕\n");
     return 0;
 }

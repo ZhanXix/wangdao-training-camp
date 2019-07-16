@@ -46,6 +46,15 @@ int main()
             //改变当前文件夹
             ret=chdir("../files");
             ERROR_CHECK(ret,-1,"chdir");
+            //创建/打开日志文件,写入服务器启动信息
+            time_t nowtime=time(NULL);
+            char logBuf[128]={0};
+            strcpy(logBuf,ctime(&nowtime));
+            logBuf[strlen(logBuf)-1]=0;
+            strcat(logBuf,"**********服务器启动**********\n");
+            int logFd=open("../conf/log.txt",O_RDWR|O_APPEND|O_CREAT,0666);
+            ret=write(logFd,logBuf,strlen(logBuf));
+            close(logFd);
             //epoll监听
             int epFd=epoll_create(1);
             ERROR_CHECK(epFd,-1,"epoll_create");
@@ -67,6 +76,17 @@ int main()
                         newFd=accept(socketFd,NULL,NULL);
                         ERROR_CHECK(newFd,-1,"accept");
                         printf("收到客户端的连接请求，newFd=%d\n",newFd);
+                        //写日志
+                        nowtime=time(NULL);
+                        strcpy(logBuf,ctime(&nowtime));
+                        logBuf[strlen(logBuf)-1]=0;
+                        sprintf(logBuf,"%s 收到连接请求 newFd=%d\n",logBuf,newFd);
+                        pthread_mutex_lock(&threadPool.log_mutex);//加锁
+                        logFd=open("../conf/log.txt",O_RDWR|O_APPEND);
+                        ret=write(logFd,logBuf,strlen(logBuf));
+                        close(logFd);
+                        pthread_mutex_unlock(&threadPool.log_mutex);//解锁
+                        //加入工作队列
                         ret=WorkQueue_Add(newFd,threadPool.pWorkQueue);
                         if(-1==ret)
                         {

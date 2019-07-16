@@ -34,6 +34,7 @@ typedef struct thread_pool_info
     int threadNum;
     pthread_cond_t cond;
     short WorkFlag;
+    pthread_mutex_t log_mutex;
 }Thread_Pool_Info_t,*pThread_Pool_Info_t;
 
 typedef struct file_data

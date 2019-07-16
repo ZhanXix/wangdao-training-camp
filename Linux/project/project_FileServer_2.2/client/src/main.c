@@ -35,6 +35,7 @@ int main()
     char buf[1000]={0};
     char sendBuf[1004]={0};
     char path[1024]="/";
+    //char logBuf[128]={0};
     int i;
     system("clear");
     printf(LIGHT_BLUE "--------------登陆成功--------------\n");
@@ -53,6 +54,8 @@ int main()
     fflush(stdout);
     while(-1!=read(STDIN_FILENO,buf,sizeof(buf)))
     {   
+        // bzero(logBuf,sizeof(logBuf));
+        // strncpy(logBuf,buf,sizeof(logBuf)-1);
         for(i=0;i<strlen(buf);++i)
         {
             if(buf[i]==' '||buf[i]=='\n')
@@ -69,6 +72,8 @@ int main()
             {
                 break;
             }
+            // strcpy(fileData.dataBuf,logBuf);
+            // SEND_FILEDATA;
         }else if(strcmp(fileData.dataBuf,"ls")==0){
             SEND_FILEDATA;
             ret=SEND_LS(socketFd);
@@ -117,7 +122,7 @@ int main()
             if(-1==ret)
             {
                 break;
-            }    
+            }
         }else if(strcmp(fileData.dataBuf,"help")==0){
             printf(" cd dir 进入对应目录dir（可嵌套，如cd dir1/dir2）（..表示上级目录）\n");
             printf(" ls 列出当前目录文件\n");
