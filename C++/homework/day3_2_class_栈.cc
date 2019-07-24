@@ -31,23 +31,36 @@ public:
 
     void push(int val)
     {
-        cout << "PUSH " << val << endl;
-        _arr[_top] = val;          
-        ++_top;
+        if(!full())
+        {
+            cout << "PUSH " << val << endl;
+            _arr[_top] = val;          
+            ++_top;
+        }
+        else
+        {
+            cout << "STACK FULL! CANNOT PUSH" << endl;
+        }
     }
 
     void pop()
     {
-        cout << "POP" << endl;
-        --_top;
+        if(!empty())
+        {
+            cout << "POP" << endl;
+            --_top;
+        }else{
+            cout << "STACK EMPTY! CANNOT POP" << endl;
+        }
     }
 
     int top()
     {
-        if(_top>=1)
+        if(!empty())
         {
             return _arr[_top-1];
         }else{
+            cout << "STACK EMPTY! CANNOT GET TOP VAL" << endl;
             return 0;
         }
     }
