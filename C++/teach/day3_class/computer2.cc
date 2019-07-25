@@ -46,22 +46,23 @@ public:
         return *this;
     }
 
+#if 0
     void print(/* Computer * const this */)
     {
-        _price = 10000;
+        cout << "void print()" << endl;
         cout << "brand: " << _brand << endl
             << "price: " << _price << endl;
     }
+#endif
 
     //const成员函数是不能修改数据成员的
     //this指针两边都要const关键字进行保护
     //
     //const成员函数只能调用const成员函数进行保护，
     //不能调用非const成员函数
-	//
-	//以后，只要某个成员函数不会对数据成员进行修改，就要将其设置为const类型
     void print(/* Computer const * const this */) const
     {
+        cout << "void print() const" << endl;
         //this->_price = 10000;//error
         //setPrice(10000);//error
         cout << "brand: " << _brand << endl
@@ -94,6 +95,10 @@ private:
 //静态数据成员的初始化必须要放在类之外进行
 double Computer::_totalPrice = 0.0;
 
+void func(const Computer &pc)
+{
+    pc.print();
+}
 
 int test0()
 {
@@ -107,9 +112,13 @@ int test0()
 
     Computer pc2("Xiaomi",7500);
     cout << "pc2 = ";
-    pc2.print();
+    pc2.print();//非const对象可以调用const成员函数
     //pc2.printTotalPrice();
     Computer::printTotalPrice();
+
+    //const对象只能使用const成员函数
+    const Computer pc3("Acer",6666);
+    pc3.print();
 
     return 0;
 }
