@@ -1,3 +1,4 @@
+/*熟悉log4cpp的用法，动手敲代码*/
 #include <log4cpp/Category.hh>
 #include <log4cpp/OstreamAppender.hh>
 #include <log4cpp/Priority.hh>
