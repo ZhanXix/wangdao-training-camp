@@ -215,6 +215,33 @@ std::istream &operator>>(std::istream &is, String &s)
     return is;
 }
 
+String operator+(const String &lhs, const String &rhs)
+{
+    char * pstr = new char[ lhs.size() + rhs.size() + 1 ]();
+    strcpy(pstr,lhs.c_str());
+    strcat(pstr,rhs.c_str());
+    String str(pstr);
+    return str;
+}
+
+String operator+(const String & lhs, const char * cstr)
+{
+    char * pstr = new char[ lhs.size() + strlen(cstr) + 1 ]();
+    strcpy(pstr,lhs.c_str());
+    strcat(pstr,cstr);
+    String str(pstr);
+    return str;
+}
+
+String operator+(const char * cstr, const String & rhs)
+{
+    char * pstr = new char[ rhs.size() + strlen(cstr) + 1  ]();
+    strcpy(pstr,cstr);
+    strcat(pstr,rhs.c_str());
+    String str(pstr);
+    return str;
+}
+
 
 /*以下为测试用代码*/
 int test0()
@@ -295,6 +322,13 @@ void test1()
     cout << "str3<str2? " << (str3<str2) << endl;
     cout << "str3>=str2? " << (str3>=str2) << endl;
     cout << "str3<=str2? " << (str3<=str2) << endl;
+
+    str3 = str1 + str2;
+    cout << "str3 = " << str3 << endl;
+    str3 = str1 + "HA!";
+    cout << "str3 = " << str3 << endl;
+    str3 = "HA?" + str2;
+    cout << "str3 = " << str3 << endl;
 }
 
 
