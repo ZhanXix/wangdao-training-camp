@@ -6,7 +6,7 @@ using std::endl;
 class Complex
 {
 public:
-    Complex(double dreal, double dimag)
+    Complex(double dreal=0, double dimag=0)
     : _dreal(dreal)
     , _dimag(dimag)
     {
@@ -224,11 +224,23 @@ void test4()
     cout << c1 << endl;
 }
 
+void test5()
+{
+    Complex c1(1,2);
+    cout << "c1 = " << c1 << endl;
+    Complex c2 = c1 + 5;
+        //Complex c2 = operator+(c1,5)
+    cout << "c2 = " << c2 << endl;
+    c2 = 5 + c1;//隐式转换
+    cout << "c2 = " << c2 << endl;
+}
+
 int main()
 {
     //test1();
     //test2();
     //test3();
-    test4();
+    //test4();
+    test5();
     return 0;
 }
