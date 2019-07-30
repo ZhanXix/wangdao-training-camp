@@ -1,8 +1,5 @@
- ///
- /// @file    cow_string.cc
- /// @author  lemon(haohb13@gmail.com)
- /// @date    2019-07-30 15:49:29
- ///
+/*最简单的深拷贝就是直接new一个对象，然后把数据复制一遍，不过这样做效率很低，STL中对此进行了优化，
+对string的实现有两种不同的优化策略，即COW(Copy On Write)和SSO(Small String Optimization)*/
  
 #include <string.h>
 #include <iostream>
