@@ -1,4 +1,5 @@
-/*实现基本的COW(Copy On Write)的CowString*/
+/*实现基本的COW(Copy On Write)的CowString，
+让其operator[]能够区分出读写操作*/
 
 #include <string.h>
 #include <iostream>
@@ -54,7 +55,7 @@ public:
 		return _pstr;
 	}
 
-	//运算符
+	//operator
 	CowString& operator=(const CowString& rhs)
 	{
 		cout << "CowString& operator=(const CowString&)" << endl;
@@ -67,6 +68,29 @@ public:
 	}
 
 	friend std::ostream& operator<<(std::ostream&, const CowString&);
+
+	const char& operator[](int idx) const
+	{
+		cout << "const char& operator[](int)" << endl;
+		return *(_pstr + idx);
+	}
+
+	char& operator[](int idx)
+	{
+		cout << "char& operator[](int)" << endl;
+		if (idx >= 0 && idx < get_size()) {
+			char* ptemp = new char[4 + get_size() + 1]() + 4;
+			strcpy(ptemp, _pstr);
+			Release_CowString();
+			_pstr = ptemp;
+			Init_RefCount();
+			return *(_pstr + idx);
+		}
+		else {
+			static char nullchar = 0;
+			return nullchar;
+		}
+	}
 
 private:
 	void Init_RefCount()	//初始化引用计数
@@ -130,9 +154,27 @@ int main()//test
 	cout << "s2.refcount = " << s2.get_refcount() << endl;
 	cout << "s3.refcount = " << s3.get_refcount() << endl;
 
-	cout << endl << ">> s3 = Hello!" << endl;
+	/*cout << endl << ">> s3 = Hello!" << endl;
 	s3 = "Hello!";
 	cout << "s2 = " << s2 << endl;
+	cout << "s1.refcount = " << s1.get_refcount() << endl;
+	cout << "s2.refcount = " << s2.get_refcount() << endl;
+	cout << "s3.refcount = " << s3.get_refcount() << endl;*/
+
+	cout << endl << ">> print s2[0]" << endl;
+	cout << "s2[0] = " << s2[0] << endl;
+	cout << "s1 = " << s1 << endl;
+	cout << "s2 = " << s2 << endl;
+	cout << "s3 = " << s3 << endl;
+	cout << "s1.refcount = " << s1.get_refcount() << endl;
+	cout << "s2.refcount = " << s2.get_refcount() << endl;
+	cout << "s3.refcount = " << s3.get_refcount() << endl;
+
+	cout << endl << ">> s2[0] = w" << endl;
+	s2[0] = 'w';
+	cout << "s1 = " << s1 << endl;
+	cout << "s2 = " << s2 << endl;
+	cout << "s3 = " << s3 << endl;
 	cout << "s1.refcount = " << s1.get_refcount() << endl;
 	cout << "s2.refcount = " << s2.get_refcount() << endl;
 	cout << "s3.refcount = " << s3.get_refcount() << endl;
