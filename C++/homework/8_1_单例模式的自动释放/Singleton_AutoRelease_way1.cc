@@ -49,7 +49,7 @@ private:
 	static AutoRelease _autoRelease;
 };
 
-Sigleton* Sigleton::_pSigleton = nullptr;
+Sigleton* Sigleton::_pSigleton = Sigleton::getInstance();
 Sigleton::AutoRelease Sigleton::_autoRelease;
 
 int main()//test
