@@ -6,8 +6,56 @@
 using std::cout;
 using std::endl;
 
+
 class CowString
 {
+public:
+	/* class CowString::CowChar */
+	class CowChar
+	{
+	public:
+		//构造
+		CowChar(CowString& cowstr, int idx)
+			: _cowstr(cowstr)
+			, _idx(idx)
+		{
+			cout << "CowChar(CowString&,int)" << endl;
+		}
+
+		//析构
+		~CowChar()
+		{
+			cout << "~CowChar()" << endl;
+		}
+
+		//operator
+		char& operator=(const char& c)
+		{
+			if (_idx >= 0 && _idx < _cowstr.get_size()) {
+				if (_cowstr.get_refcount() > 1) {
+					_cowstr.Reduce_RefCount();
+					char* ptemp = new char[4 + _cowstr.get_size() + 1] + 4;
+					strcpy(ptemp, _cowstr._pstr);
+					_cowstr._pstr = ptemp;
+					_cowstr.Init_RefCount();
+				}
+				_cowstr._pstr[_idx] = c;
+				return _cowstr._pstr[_idx];
+			}
+			else {
+				static char nullchar = 0;
+				return nullchar;
+			}
+		}
+
+		friend std::ostream& operator<<(std::ostream& os, const CowChar& rhs);
+
+	private:
+		CowString& _cowstr;
+		int _idx;
+	};
+
+	/* class CowString */
 public:
 	//构造
 	CowString()
@@ -67,29 +115,17 @@ public:
 		return *this;
 	}
 
+	CowChar operator[](int idx)
+	{
+		return CowChar(*this, idx);
+	}
+
 	friend std::ostream& operator<<(std::ostream&, const CowString&);
 
 	const char& operator[](int idx) const
 	{
 		cout << "const char& operator[](int)" << endl;
 		return *(_pstr + idx);
-	}
-
-	char& operator[](int idx)
-	{
-		cout << "char& operator[](int)" << endl;
-		if (idx >= 0 && idx < get_size()) {
-			char* ptemp = new char[4 + get_size() + 1]() + 4;
-			strcpy(ptemp, _pstr);
-			Release_CowString();
-			_pstr = ptemp;
-			Init_RefCount();
-			return *(_pstr + idx);
-		}
-		else {
-			static char nullchar = 0;
-			return nullchar;
-		}
 	}
 
 private:
@@ -127,7 +163,14 @@ std::ostream& operator<<(std::ostream& os, const CowString& rhs)
 	return os;
 }
 
-int main()//test
+std::ostream& operator<<(std::ostream& os, const CowString::CowChar& rhs)
+{
+	os << rhs._cowstr.c_str()[rhs._idx];
+	return os;
+}
+
+/* 测试代码 */
+int main()
 {
 	cout << ">> s1 = Welcome!" << endl;
 	CowString s1 = "Welcome!";
