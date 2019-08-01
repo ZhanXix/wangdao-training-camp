@@ -7,23 +7,48 @@
 	将其姓名、年龄、部门、工资输出，并计算他们的平均工资。
  */
 
+#include <string.h>
 #include <iostream>
 using std::cout;
 using std::endl;
 
-class Circle
+class Person
 {
 public:
-	
+	//构造
+	Person(const char* name, int age)
+		: _name(new char[strlen(name) + 1]())
+		, _age(age)
+	{
+		cout << "Person(const char*, int)" << endl;
+		strcpy(_name, name);
+	}
+
+	//析构
+	~Person()
+	{
+		cout << "~Person()" << endl;
+		delete[] _name;
+	}
+
+	//成员方法
+	void display() const
+	{
+		cout << "name = " << _name
+			<< ", age = " << _age << endl;
+	}
 
 private:
-	
+	char* _name;	//姓名
+	int _age;	//年龄
 };
 
 
 //测试代码
 int main()	
 {
+	Person ps("Xiaoming", 20);
+	ps.display();
 
 	return 0;
 }
