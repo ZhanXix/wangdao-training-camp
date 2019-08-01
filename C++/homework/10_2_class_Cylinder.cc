@@ -39,17 +39,17 @@ public:
 	}
 
 	//成员方法
-	double getArea()      //获取圆的面积
+	double getArea() const     //获取圆的面积
 	{
 		return Pi * _r * _r;
 	}
 
-	double getPerimeter() //获取圆的周长
+	double getPerimeter() const	//获取圆的周长
 	{
 		return 2 * Pi * _r;
 	}
 
-	void show()          //将圆的半径、周长、面积输出到屏幕
+	void show() const         //将圆的半径、周长、面积输出到屏幕
 	{
 		cout << "radius = " << _r
 			<< ", perimeter = " << getPerimeter()
@@ -79,12 +79,12 @@ public:
 	}
 
 	//成员方法
-	double getVolume()   //获取圆柱体的体积
+	double getVolume() const   //获取圆柱体的体积
 	{
 		return getArea() * _h;
 	}
 
-	void  showVolume()   //将圆柱体的体积输出到屏幕
+	void  showVolume() const   //将圆柱体的体积输出到屏幕
 	{
 		cout << "volume = " << getVolume() << endl;
 	}
