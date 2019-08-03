@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+using std::cin;
 using std::cout;
 using std::endl;
 using std::string;
@@ -38,7 +39,8 @@ public:
 	void print() const
 	{
 		cout << "It has a " << _weapons_names[_weapon]
-			<< ",and it's morale is " << _morale << endl;
+			<< ",and it's morale is ";
+		printf("%.2f\n", _morale);
 	}
 
 private:
@@ -125,7 +127,7 @@ public:
 		, _lifebase(lifebase)
 		, _time(0)
 		, _flag(1)
-		, _lastborn(0)
+		, _lastborn(4)
 	{
 		for (int i = 0; i < 5; ++i) {
 			_needlife[i] = needlife[i];
@@ -144,11 +146,10 @@ public:
 			}
 		}
 		else {
-			printf("%03d ", _time);
-			cout << _color << " headquarter stops making warriors" << endl;
 			return -1;
 		}
 		++_time;
+		return 0;
 	}
 
 	int born()
@@ -158,7 +159,9 @@ public:
 		while (_lifebase < _needlife[_order[nowborn]] && nowborn != _lastborn) {
 			nowborn = (nowborn + 1) % 5;
 		}
-		if (nowborn == _lastborn) {
+		if (nowborn == _lastborn) {//停止生产
+			printf("%03d ", _time);
+			cout << _color << " headquarter stops making warriors" << endl;
 			return -1;
 		}
 		else {
@@ -171,26 +174,37 @@ public:
 		printf("%03d ", _time);
 		cout << _color << " " << Warrior::_warrior_names[order]
 			<< " " << (_time + 1)
-			<< "born with strength " << _needlife[order]
+			<< " born with strength " << _needlife[order]
 			<< "," << _count[order] << " " << Warrior::_warrior_names[order]
 			<< " in " << _color << " headquarter" << endl;
-		
-		switch (order)
-		{
-		case 0:
-			dragon x(_lifebase, _time + 1, _needlife[nowborn]);
-		case 1:
-			ninja x(_lifebase, _time + 1, _needlife[nowborn]);
-		case 2:
-			iceman x(_lifebase, _time + 1, _needlife[nowborn]);
-		case 3:
-			lion x(_lifebase, _time + 1, _needlife[nowborn]);
-		case 4:
-			wolf x(_lifebase, _time + 1, _needlife[nowborn]);
-		default:
-			break;
+
+		if (order == 0) {
+			dragon d(_lifebase, _time + 1, _needlife[order]);
+			d.print();
+		}
+		else if (order == 1) {
+			ninja n(_lifebase, _time + 1, _needlife[order]);
+			n.print();
+		}
+		else if (order == 2) {
+			iceman i(_lifebase, _time + 1, _needlife[order]);
+			i.print();
+		}
+		else if (order == 3) {
+			lion l(_lifebase, _time + 1, _needlife[order]);
+			l.print();
+		}
+		else if (order == 4) {
+			wolf w(_lifebase, _time + 1, _needlife[order]);
+			w.print();
 		}
 
+		return 0;
+	}
+
+	bool get_flag()
+	{
+		return _flag;
 	}
 
 private:
@@ -203,3 +217,70 @@ private:
 	int _order[5];	//制造武士的顺序
 	int _count[5];	//计五种武士的数量
 };
+
+//测试代码
+void test1()
+{
+	cout << "Case1" << endl;
+	int lifebase = 20;
+	int needlife[5] = { 3,4,5,6,7 };
+	int red_order[5] = { 2,3,4,1,0 };
+	int blue_order[5] = { 3,0,1,2,4 };
+	Headquarter red("red", lifebase, needlife, red_order);
+	Headquarter blue("blue", lifebase, needlife, blue_order);
+
+	int red_flag = 0, blue_flag = 0;
+
+	while (1)
+	{
+		if (!red_flag) {
+			red_flag = red.go_on();
+		}
+		if (!blue_flag) {
+			blue_flag = blue.go_on();
+		}
+		if (red_flag && blue_flag) {
+			break;
+		}
+	}
+
+}
+
+int main()
+{
+	//test1();
+	
+	int case_num;
+	cin >> case_num;
+
+	int lifebase;
+	cin >> lifebase;
+
+	int needlife[5];
+	for (int i = 0; i < 5; ++i)
+	{
+		cin >> needlife[i];
+	}
+
+	int red_order[5] = { 2,3,4,1,0 };
+	int blue_order[5] = { 3,0,1,2,4 };
+
+	Headquarter red("red", lifebase, needlife, red_order);
+	Headquarter blue("blue", lifebase, needlife, blue_order);
+
+	cout << "Case:" << case_num << endl;
+	while (1)
+	{
+		if (red.get_flag()) {
+			red.go_on();
+		}
+		if (blue.get_flag()) {
+			blue.go_on();
+		}
+		if (!red.get_flag() && !blue.get_flag()) {
+			break;
+		}
+	}
+
+	return 0;
+}
