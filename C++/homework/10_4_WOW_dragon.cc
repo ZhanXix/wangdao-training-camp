@@ -1,4 +1,6 @@
-//只是写了一个大体框架，未进行实际测试
+/* 魔兽世界之二:装备版    
+		http://cxsjsxmooc.openjudge.cn/2018t3springw5/3/    
+   通过阅读题目，构建武士的继承体系 */
 
 #include <iostream>
 #include <string>
