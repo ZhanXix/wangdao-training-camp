@@ -296,7 +296,7 @@ bool example_4()
 	@until &v1 );
 */
 
-
+#if 0
 int main( int argc, const char ** argv )
 {
 	#if defined( _MSC_VER ) && defined( TINYXML2_DEBUG )
@@ -2353,3 +2353,4 @@ int main( int argc, const char ** argv )
 
 	return gFail;
 }
+#endif
