@@ -1,6 +1,5 @@
 /*
-使用tinyXml2解析RSS文件，并生成一个网页库pagelib.dat
-（教师范例）
+使用tinyXml2解析RSS文件
 */
 
 #include "tinyxml2.h"
@@ -25,7 +24,7 @@ void test0()
 	XMLElement* itemNode = doc.FirstChildElement("rss")
 		->FirstChildElement("channel")
 		->FirstChildElement("item");
-	
+
 	do {
 		XMLElement* titleNode = itemNode->FirstChildElement("title");
 		const char* title = titleNode->GetText();
@@ -45,7 +44,7 @@ void test0()
 		string contentProcessed = std::regex_replace(content, re, "");
 		cout << "content:" << contentProcessed << endl;
 
-	} while (itemNode->NextSiblingElement("item"));
+	} while (itemNode = itemNode->NextSiblingElement("item"));
 }
 
 
