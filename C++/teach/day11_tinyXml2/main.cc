@@ -25,24 +25,27 @@ void test0()
 	XMLElement* itemNode = doc.FirstChildElement("rss")
 		->FirstChildElement("channel")
 		->FirstChildElement("item");
+	
+	do {
+		XMLElement* titleNode = itemNode->FirstChildElement("title");
+		const char* title = titleNode->GetText();
+		cout << "title: " << title << endl;
 
-	XMLElement* titleNode = itemNode->FirstChildElement("title");
-	const char* title = titleNode->GetText();
-	cout << "title: " << title << endl;
+		XMLElement* linkNode = itemNode->FirstChildElement("link");
+		const char* link = linkNode->GetText();
+		cout << "link: " << link << endl;
 
-	XMLElement* linkNode = itemNode->FirstChildElement("link");
-	const char* link = linkNode->GetText();
-	cout << "link: " << link << endl;
+		XMLElement* contentNode = itemNode->FirstChildElement("content:encoded");
+		const char* content = contentNode->GetText();
+		//cout << "content:" << content << endl;
 
-	XMLElement* contentNode = itemNode->FirstChildElement("content:encoded");
-	const char* content = contentNode->GetText();
-	//cout << "content:" << content << endl;
+		std::regex re("<.+?>");
 
-	std::regex re("<.+?>");
+		//learning by doing
+		string contentProcessed = std::regex_replace(content, re, "");
+		cout << "content:" << contentProcessed << endl;
 
-	//learning by doing
-	string contentProcessed = std::regex_replace(content, re, "");
-	cout << "content:" << contentProcessed << endl;
+	} while (itemNode->NextSiblingElement("item"));
 }
 
 
