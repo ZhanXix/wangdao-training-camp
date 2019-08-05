@@ -33,8 +33,8 @@ int main()
 	int d1 = 1, d2 = 2;
 	double d3 = 1.1, d4 = 2.2;
 	char d5 = 'a', d6 = 1;
-	cout << "add(d1, d2) = " << add(d1, d2) << endl;
-	cout << "add(d3, d4) = " << add(d3, d4) << endl;
+	cout << "add(d1, d2) = " << add(d1, d2) << endl;//隐式实例化
+	cout << "add(d3, d4) = " << add<double>(d3, d4) << endl;//显式实例化
 	cout << "add(d5, d6) = " << add(d5, d6) << endl;
 
 	int d7 = 3;
