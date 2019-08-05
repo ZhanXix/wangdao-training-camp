@@ -27,7 +27,7 @@ void test0()
 	cout << "\n>>> test vector:" << endl;
 	cout << sizeof(vector<int>) << endl;
 	//vector<int> numbers(10, 1);
-	//vector<int> numbers(array, array + 5);//迭代器范围
+	//vector<int> numbers(array, array + 5);//迭代器范围是一个左闭右开的区间[beg, end)
 	vector<int> numbers{ 1,2,3,4,5 };
 	display(numbers);
 
