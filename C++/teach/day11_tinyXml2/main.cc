@@ -5,8 +5,11 @@
 
 #include "tinyxml2.h"
 #include <iostream>
+#include <regex>
+#include <string>
 using std::cout;
 using std::endl;
+using std::string;
 
 using namespace tinyxml2;
 
@@ -33,7 +36,13 @@ void test0()
 
 	XMLElement* contentNode = itemNode->FirstChildElement("content:encoded");
 	const char* content = contentNode->GetText();
-	cout << "content:" << content << endl;
+	//cout << "content:" << content << endl;
+
+	std::regex re("<.+?>");
+
+	//learning by doing
+	string contentProcessed = std::regex_replace(content, re, "");
+	cout << "content:" << contentProcessed << endl;
 }
 
 
