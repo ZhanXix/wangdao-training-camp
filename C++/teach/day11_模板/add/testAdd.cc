@@ -5,8 +5,8 @@ using std::endl;
 
 void test0()
 {
-	int d1 = 1, d2 = 2;
-	cout << "add(d1, d2) = " << add(d1, d2) << endl;
+	int a = 3, b = 4;
+	cout << "add(a, b) = " << add(a, b) << endl;
 }
 
 int main()
