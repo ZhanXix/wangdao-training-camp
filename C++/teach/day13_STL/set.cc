@@ -98,7 +98,7 @@ void test2()
 }
 
 
-class Point 
+class Point
 {
 public:
 	Point(int ix, int iy)
@@ -149,7 +149,8 @@ struct Comparator
 void test3()
 {
 	//set<Point> numbers{
-	set<Point,std::greater<Point>>numbers{
+	set<Point, Comparator>numbers{
+	//set<Point,std::greater<Point>>numbers{
 		Point(1,2),
 		Point(2,5),
 		Point(-2,10),
@@ -165,7 +166,7 @@ void test3()
 	display(numbers);
 
 	//添加元素:
-	std::pair<set<Point>::iterator, bool> ret = numbers.insert(Point(11,12));
+	std::pair<set<Point>::iterator, bool> ret = numbers.insert(Point(11, 12));
 	if (ret.second) {
 		cout << "添加元素成功！" << endl;
 		cout << *ret.first << endl;
@@ -176,7 +177,7 @@ void test3()
 	}
 
 	//查找元素：
-	auto it2 = numbers.find(Point(11,12));
+	auto it2 = numbers.find(Point(11, 12));
 	if (it2 == numbers.end()) {
 		cout << "set中没有该元素" << endl;
 	}
