@@ -120,10 +120,10 @@ int Method0_vector()//这是上一次写这题时用的代码
 		flag = 0;
 	}
 
-	ofstream ofs("dictionary.txt");
+	ofstream ofs("dictionary0.txt");
 	if (!ofs)
 	{
-		cout << "创建文件dictionary.txt出错!" << endl;
+		cout << "创建文件dictionary0.txt出错!" << endl;
 		return -1;
 	}
 
@@ -139,7 +139,7 @@ int Method0_vector()//这是上一次写这题时用的代码
 
 	//程序结束计时
 	end = clock();
-	cout << "总用时：" << (double)(end - start)/1000000 << "s" << endl;
+	cout << "总用时：" << (double)(end - start)/CLOCKS_PER_SEC << "s" << endl;
 
 	return 0;
 }
@@ -174,10 +174,10 @@ int Method1_map()
 		dictionary[word]++;
 	}
 
-	ofstream ofs("dictionary.txt");
+	ofstream ofs("dictionary1.txt");
 	if (!ofs)
 	{
-		cout << "创建文件dictionary.txt出错!" << endl;
+		cout << "创建文件dictionary1.txt出错!" << endl;
 		return -1;
 	}
 
@@ -194,7 +194,7 @@ int Method1_map()
 
 	//程序结束计时
 	end = clock();
-	cout << "总用时：" << (double)(end - start)/1000000 << "s" << endl;
+	cout << "总用时：" << (double)(end - start)/CLOCKS_PER_SEC << "s" << endl;
 
 	return 0;
 }
@@ -229,10 +229,10 @@ int Method2_unordered_map()
 		dictionary[word]++;
 	}
 
-	ofstream ofs("dictionary.txt");
+	ofstream ofs("dictionary2.txt");
 	if (!ofs)
 	{
-		cout << "创建文件dictionary.txt出错!" << endl;
+		cout << "创建文件dictionary2.txt出错!" << endl;
 		return -1;
 	}
 
@@ -249,7 +249,7 @@ int Method2_unordered_map()
 
 	//程序结束计时
 	end = clock();
-	cout << "总用时：" << (double)(end - start)/1000000 << "s" << endl;
+	cout << "总用时：" << (double)(end - start)/CLOCKS_PER_SEC << "s" << endl;
 
 	return 0;
 }
