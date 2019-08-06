@@ -80,7 +80,6 @@ int Method0_vector()//这是上一次写这题时用的代码
 	string path;
 	cout << "输入某篇文章的绝对路径：" << endl;
 	cin >> path;
-	//D:\Documents\Code\Cpp\CPP\The_Holy_Bible.txt
 
 	//开始计时
 	clock_t start, end;
@@ -152,7 +151,6 @@ int Method1_map()
 	string path;
 	cout << "输入某篇文章的绝对路径：" << endl;
 	cin >> path;
-	//D:\Documents\Code\Cpp\CPP\The_Holy_Bible.txt
 
 	//开始计时
 	clock_t start, end;
@@ -208,7 +206,6 @@ int Method2_unordered_map()
 	string path;
 	cout << "输入某篇文章的绝对路径：" << endl;
 	cin >> path;
-	//D:\Documents\Code\Cpp\CPP\The_Holy_Bible.txt
 
 	//开始计时
 	clock_t start, end;
