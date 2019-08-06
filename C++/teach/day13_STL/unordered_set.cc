@@ -1,3 +1,4 @@
+#include <math.h>
 #include <iostream>
 #include <unordered_set>
 #include <string>
@@ -39,11 +40,77 @@ void test0()
 	}
 }
 
+class Point
+{
+public:
+	Point(int ix, int iy)
+		: _ix(ix)
+		, _iy(iy)
+	{
+		cout << "Point(int, int)" << endl;
+	}
+
+	double getDistance() const
+	{
+		return sqrt(_ix * _ix + _iy * _iy);
+	}
+
+	friend std::ostream& operator<<(std::ostream& os, const Point& rhs);
+	friend bool operator==(const Point& lhs, const Point& rhs);
+
+private:
+	int _ix;
+	int _iy;
+};
+
+std::ostream& operator<<(std::ostream& os, const Point& rhs)
+{
+	os << "(" << rhs._ix
+		<< "," << rhs._iy
+		<< ")";
+	return os;
+}
+
+bool operator<(const Point& lhs, const Point& rhs)
+{
+	return lhs.getDistance() < rhs.getDistance();
+}
+
+bool operator>(const Point& lhs, const Point& rhs)
+{
+	return lhs.getDistance() > rhs.getDistance();
+}
+
+bool operator==(const Point& lhs, const Point& rhs)
+{
+	return (lhs._ix == rhs._ix) && (lhs._iy == rhs._iy);
+}
+
+struct Comparator
+{
+	bool operator()(const Point& lhs, const Point& rhs)
+	{
+		return lhs.getDistance() < rhs.getDistance();
+	}
+};
+
+void test3()
+{
+	unordered_set<Point> points{
+		Point(5,6),
+		Point(2,3),
+		Point(1,2),
+		Point(2,2),
+		Point(4,3),
+		Point(7,8)
+	};
+}
+
 int main()
 {
-	test0();
+	//test0();
 	//test1();
 	//test2();
-	//test3();
+	test3();
 	return 0;
 }
