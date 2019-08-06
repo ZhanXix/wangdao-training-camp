@@ -1,3 +1,4 @@
+#include <math.h>
 #include <iostream>
 #include <set>
 #include <string>
@@ -148,9 +149,9 @@ struct Comparator
 
 void test3()
 {
-	//set<Point> numbers{
-	set<Point, Comparator>numbers{
-	//set<Point,std::greater<Point>>numbers{
+	//set<Point> numbers = {
+	set<Point, Comparator> numbers = {
+	//set<Point,std::greater<Point>> numbers = {
 		Point(1,2),
 		Point(2,5),
 		Point(-2,10),
