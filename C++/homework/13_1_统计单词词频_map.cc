@@ -36,6 +36,7 @@ int main()
 	string path;
 	cout << "输入某篇文章的绝对路径：" << endl;
 	cin >> path;
+	//D:\Documents\Code\Cpp\CPP\The_Holy_Bible.txt
 
 	//读文件
 	ifstream ifs;
@@ -69,6 +70,7 @@ int main()
 		ofs << "|   " << elem.first
 			<< " " << elem.second << endl;
 	}
+	ofs << "------------------" << endl;
 
 	ifs.close();
 	ofs.close();
