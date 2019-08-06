@@ -142,11 +142,18 @@ void test3()
 		Point(7,8)
 	};
 	display(points);
+
+	auto ret = points.equal_range(Point(2, 2));
+	while (ret.first != ret.second) {
+		cout << *ret.first << " ";
+		++ret.first;
+	}
+	cout << endl;
 }
 
 int main()
 {
-	test0();
-	//test3();
+	//test0();
+	test3();
 	return 0;
 }
