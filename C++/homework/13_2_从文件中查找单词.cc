@@ -176,6 +176,7 @@ int main()
 	string queryWord;
 	cout << "输入要查询的单词：" << endl;
 	cin >> queryWord;
+	cout << endl;
 	tq.query(queryWord);
 
 	return 0;
