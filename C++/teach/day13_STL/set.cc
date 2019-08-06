@@ -141,7 +141,7 @@ bool operator>(const Point& lhs, const Point& rhs)
 
 struct Comparator
 {
-	bool operator()(const Point& lhs, const Point& rhs)
+	bool operator()(const Point& lhs, const Point& rhs) const
 	{
 		return lhs.getDistance() < rhs.getDistance();
 	}
