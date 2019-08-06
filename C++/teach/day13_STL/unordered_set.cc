@@ -50,10 +50,15 @@ public:
 		cout << "Point(int, int)" << endl;
 	}
 
+	~Point() { cout << "~Point()" << endl; }
+
 	double getDistance() const
 	{
 		return sqrt(_ix * _ix + _iy * _iy);
 	}
+
+	int getx() const { return _ix; }
+	int gety() const { return _iy; }
 
 	friend std::ostream& operator<<(std::ostream& os, const Point& rhs);
 	friend bool operator==(const Point& lhs, const Point& rhs);
@@ -88,29 +93,60 @@ bool operator==(const Point& lhs, const Point& rhs)
 
 struct Comparator
 {
-	bool operator()(const Point& lhs, const Point& rhs)
+	bool operator()(const Point& lhs, const Point& rhs) const
 	{
 		return lhs.getDistance() < rhs.getDistance();
 	}
 };
 
+namespace std
+{
+	template<>
+	struct hash<Point>
+	{
+		size_t operator()(const Point& pt) const
+		{
+			return (pt.getx() * pt.getx() - 1) ^
+				(pt.gety() * pt.gety() - 1);
+		}
+	};
+}//end of namespace std
+
+struct PointHasher
+{
+	size_t operator()(const Point& pt) const
+	{
+		return (pt.getx() * pt.getx() - 1) ^
+			(pt.gety() * pt.gety() - 1);
+	}
+};
+
+struct PointEqual
+{
+	bool operator()(const Point& lhs, const Point& rhs) const
+	{
+		return (lhs.getx() == rhs.getx()) && (lhs.gety() == rhs.gety());
+	}
+};
+
 void test3()
 {
-	unordered_set<Point> points{
+	//unordered_set<Point> points{ //需要重载==运算符、重载hash函数
+	unordered_set<Point,PointHasher,PointEqual> points{	//需要自定义结构体
 		Point(5,6),
 		Point(2,3),
 		Point(1,2),
 		Point(2,2),
 		Point(4,3),
+		Point(2,2),
 		Point(7,8)
 	};
+	display(points);
 }
 
 int main()
 {
 	//test0();
-	//test1();
-	//test2();
 	test3();
 	return 0;
 }
