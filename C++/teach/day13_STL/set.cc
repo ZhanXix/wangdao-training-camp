@@ -149,9 +149,9 @@ struct Comparator
 
 void test3()
 {
-	//set<Point> numbers = {
-	set<Point, Comparator> numbers = {
-	//set<Point,std::greater<Point>> numbers = {
+	//set<Point> numbers{
+	//set<Point, Comparator> numbers{//这句linux系统里编译不会出错，用windows VS会报错
+	set<Point,std::greater<Point>> numbers{
 		Point(1,2),
 		Point(2,5),
 		Point(-2,10),
