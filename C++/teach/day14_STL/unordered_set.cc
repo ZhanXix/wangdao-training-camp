@@ -4,7 +4,7 @@
 #include <string>
 using std::cout;
 using std::endl;
-using std::unordered_set;
+using std::unordered_set;//µ×²ã£ºhash±í
 using std::string;
 
 template <class Container>
