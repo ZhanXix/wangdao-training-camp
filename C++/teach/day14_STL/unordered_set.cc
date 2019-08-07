@@ -131,7 +131,7 @@ struct PointEqual
 
 void test3()
 {
-	//unordered_set<Point> points{ //需要重载==运算符、重载hash函数
+#if 0
 	unordered_set<Point,PointHasher,PointEqual> points{	//需要自定义结构体
 		Point(5,6),
 		Point(2,3),
@@ -145,10 +145,14 @@ void test3()
 		Point(8,10),
 		Point(8,11)
 	};
+#endif
+
+	unordered_set <Point, PointHasher, PointEqual> points(100);//设置槽的个数
 
 	points.insert(Point(11, 12));
 	points.insert(Point(12, 13));
 	points.insert(Point(13, 13));
+
 	cout << points.load_factor() << endl;//填充因子
 	cout << points.max_load_factor() << endl;//最大填充因子
 	cout << points.size() << endl;
