@@ -147,7 +147,8 @@ void test3()
 	};
 #endif
 
-	unordered_set <Point, PointHasher, PointEqual> points(100);//设置槽的个数
+	//bucket（桶，槽）的数量要是元素数量的两倍，这样可以减少rehash的次数
+	unordered_set <Point, PointHasher, PointEqual> points(100);//直接设置槽的个数
 
 	points.insert(Point(11, 12));
 	points.insert(Point(12, 13));
