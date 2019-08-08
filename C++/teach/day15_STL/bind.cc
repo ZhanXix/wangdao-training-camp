@@ -86,6 +86,9 @@ void test3()
 	//Õ¼Î»·û
 	auto f2 = std::bind(add, 1, std::placeholders::_1);
 	cout << "f2(100)=" << f2(100) << endl;
+
+	auto f3 = std::bind(add, std::placeholders::_1, 10);
+	cout << "f3(100)=" << f3(100) << endl;
 }
 
 int main()
