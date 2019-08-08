@@ -22,6 +22,7 @@ public:
 	static T* getInstance(Args... args)
 	{
 		if (_pInstance == nullptr) {
+			_auto;
 			_pInstance = new T(args...);
 		}
 		return _pInstance;
