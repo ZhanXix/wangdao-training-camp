@@ -21,7 +21,7 @@ public:
 		strcpy(_pstr, pstr);
 	}
 
-	//当const左值引用作为一个参数，无法区分出来传递过来的实参是左值还是右值
+	//当const左值引用作为一个形参，无法区分出来传递过来的实参是左值还是右值
 	String(const String& rhs)
 		: _pstr(new char[strlen(rhs._pstr) + 1]())
 	{
@@ -59,6 +59,7 @@ std::ostream& operator<<(std::ostream& os, const String& rhs)
 int main()
 {
 	vector<String> strs;
+	strs.push_back("hello,world");
 
 	return 0;
 }
