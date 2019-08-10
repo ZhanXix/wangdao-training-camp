@@ -123,8 +123,17 @@ void test1()
 	getString();
 }
 
+//右值引用是一个右值
+String&& func()
+{
+	String str("hello");
+	return std::move(str);
+}
+
 int main()
 {
 	test1();
+	//func();//右值
+
 	return 0;
 }
