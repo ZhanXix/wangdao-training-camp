@@ -123,6 +123,18 @@ void test1()
 	getString();
 }
 
+void test2()
+{
+	int a = 1;
+	int b = 2;
+	cout << "a = " << a << endl
+		<< "b = " << b << endl;
+
+	b = std::move(a);
+	cout << "a = " << a << endl
+		<< "b = " << b << endl;
+}
+
 //右值引用是一个右值
 String&& func()
 {
@@ -132,8 +144,10 @@ String&& func()
 
 int main()
 {
-	test1();
-	//func();//右值
+	//test1();
+	//&func();//右值
+
+	test2();
 
 	return 0;
 }
