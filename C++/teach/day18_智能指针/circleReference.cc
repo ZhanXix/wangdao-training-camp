@@ -29,8 +29,13 @@ int main()
 	//shared_ptr的循环引用会导致内存泄漏
 	shared_ptr<Parent> pParent(new Parent);
 	shared_ptr<Child> pChild(new Child);
-	pParent->_pChild = pChild;
-	pChild->_pParent = pParent;
+	cout << "pParent' use_count = " << pParent.use_count() << endl;
+	cout << "pChild' use_count = " << pChild.use_count() << endl;
+	pParent->_pChild = pChild;//引用计数加一
+	pChild->_pParent = pParent;//引用计数加一
+
+	cout << "pParent' use_count = " << pParent.use_count() << endl;
+	cout << "pChild' use_count = " << pChild.use_count() << endl;
 
 	return 0;
 }
