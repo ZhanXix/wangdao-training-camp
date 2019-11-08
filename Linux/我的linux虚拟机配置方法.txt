@@ -16,6 +16,8 @@ sudo apt install gcc
 sudo apt-get install g++
 sudo apt  install tree
 sudo apt install make
+sudo apt install docker
+sudo apt install docker-compose
 
 
 4.√¿ªØ
