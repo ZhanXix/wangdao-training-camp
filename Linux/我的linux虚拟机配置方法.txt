@@ -21,19 +21,14 @@ sudo apt install docker-compose
 
 
 4.美化
-sudo apt install gnome-tweak-tool
-“优化-字体”中调整缩放比例 1.20
-sudo apt install arc-theme
-“优化-外观”更换主题-应用程序  Arc-Dark
 勾选终端“编辑-首选项”下“配置文件-未命名-颜色”中使用透明背景
 更换锁屏、桌面背景
+
+sudo apt install gnome-tweak-tool
+“优化-字体”中调整缩放比例 1.20
 “优化-桌面”去掉回收站图标
 
-sudo apt install chrome-gnome-shell
-登录网站 extensions.gnome.org
-点击网页上的Click here to install browser extension
-在网页上安装插件User Themes（把右上角的OFF调成ON即可）
-“优化-外观”更换主题-shell Arc-Dark
+#之前弄了主题，但是那个方法已经失效了，暂时没有研究新的换主题的方法
 
 5.修改~/.bashrc
 （只对本用户生效）
@@ -90,11 +85,4 @@ rm ~/.vimplus
 安装语言包插件
 ctrl+shift+p搜索language，configue display language，选择中文
 
-
-
-
-
-
-
-
-
+https://cpipc.chinadegrees.cn//pw/detail/2c9088a57597479f0175f7ca3ba413de
